@@ -1,0 +1,37 @@
+<nav id="nav" ng-controller="HomeController" class="navbar navbar-fixed-top navbar-inverse" ng-init='getLoggedUser()'>
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <img src="/app/assets/images/audiohackers2.png" class="navbar-brand pull-left" alt="Audio Hackers Logo">
+            <form ng-show="!checkUser()" class="navbar-form navbar-left" ng-submit="login()" novalidate>
+                <div class="form-inline my-2 my-lg-0">
+
+                    <input type="email" class="navForm form-control" placeholder="Email" name="email" ng-model="user.email">
+                    <input type="password" class="navForm form-control" placeholder="Password" name="password" ng-model="user.password">
+                    <input type="submit" class="btn btn-primary btn-outline-success" name="login" value="Login">
+                    <span id="loginError" ng-if="error" class="alert alert-danger ">{{error}}</span>
+
+                </div>
+            </form>
+            <image ng-show="checkUser()" id="navImage" ng-src="{{user.image}}" class="img-responsive pull-left">
+                <h3 ng-show="checkUser()" class="">{{user.email}}</h3>
+        </div>
+
+        <ul class="nav navbar-nav nav-pills pull-right" ng-init="checkUser()">
+            <ul ng-show="checkUser()" class="nav navbar-nav">
+                <li class="dropdown">
+                    <a class="dropdown-toggle navButtons" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-headphones fa-2x" aria-hidden="true"></i> Audio Hacks <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a class="navButtons btn-round btn-primary" ui-sref="waveGen"><i class="fa fa-file-audio-o fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;Wave Generator</a></li>
+                        <li><a class="navButtons btn-round btn-primary" ui-sref="micDb"><i class="fa fa-microphone fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;Microphone Database</a></li>
+                        <li role="separator" class="divider"></li>
+                    </ul>
+                </li>
+            </ul>
+            <li ng-show="checkUser()"><a class="navButtons" ui-sref="topics"><i class="fa fa-commenting-o fa-2x" aria-hidden="true"></i> Discussion Board</a></li>
+            <li ng-show="checkUser()"><a class="navButtons" ui-sref="profile"><i class="fa fa-user fa-2x" aria-hidden="true"></i> Profile</a></li>
+            <li ng-show="checkUser()" ng-if="user.isAdmin"><a class="navButtons" ui-sref="admin"><i class="fa fa-user fa-2x" aria-hidden="true"></i> Admin</a></li>
+            <li ng-show="checkUser()"><a class="navButtons" ng-click="logout()"><i class="fa fa-sign-out fa-2x" aria-hidden="true"></i> Logout</a></li>
+        </ul>
+        <div class="clearfix"></div>
+    </div>
+</nav>

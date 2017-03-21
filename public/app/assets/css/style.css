@@ -1,0 +1,475 @@
+/* Global */
+
+body {
+    width: 1300px;
+    height: auto;
+    margin: 100px auto;
+    font-family: 'Open Sans', sans-serif;
+    background: #30353b url("/app/assets/css/images/bg.png");
+}
+
+
+input[type=text], input[type=email], input[type=password], input[type=date], textarea {
+	background-color: #1b1c1d;
+	-webkit-box-shadow: 0 1px rgba(255,255,255,.1), inset 0 1px 2px #000;
+	-moz-box-shadow: 0 1px rgba(255,255,255,.1), inset 0 1px 2px #000;
+	box-shadow: 0 1px rgba(255,255,255,.1), inset 0 1px 2px #000;
+	color: #fff;
+	font-weight: bold;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 10px;
+	border: none;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 1em;
+}
+
+input.ng-dirty.ng-valid {
+    border-color: green;
+}
+
+input.ng-dirty.ng-invalid {
+    border-color: red;
+}
+
+.badge {
+  background-color: #333333;
+  color: white;
+}
+
+.jumbotron {
+    margin: 10px;
+    padding: 8px;
+    background-color: #1c1f23;
+    border-radius: 20px;
+}
+
+.navbar {
+    padding: 5px;
+    background: linear-gradient(to left, #000000, #434343);
+    border: none;
+    height: 80px;
+}
+
+.nav-pills {
+    vertical-align: top;
+}
+
+
+.navbar-brand {
+  margin: 0px 0px 5px 0px;
+  padding: 0px 0px 5px 0px;
+  height: auto;
+  width: 200px;
+  border-radius: 10px;
+  min-width: 200px;
+  display: inline;
+  min-height: auto;
+  position: relative;
+}
+
+#rightPanel {
+    padding: 20px;
+    margin: 20px 0;
+    align-items: center;
+}
+
+#audiohackersjumbo {
+    margin: 5px;
+}
+
+#navImage {
+    border-radius: 10px;
+    width: 40px;
+    height: 40px;
+    float: left;
+    margin: 10px;
+    display: inline;
+}
+
+
+h1 {
+    color: white;
+    background-color: #1c1f23;
+    text-align: center;
+    font-family: 'Kelly Slab';
+    padding: 5px;
+}
+
+h2 {
+  color: white;
+  background-color: #1c1f23;
+  text-align: left;;
+  font-family: 'Kelly Slab';
+  padding: 8px;
+}
+
+h2 a{
+  color: white;
+  background-color: #1c1f23;
+  text-align: left;;
+  font-family: 'Kelly Slab';
+  padding: 5px;
+}
+
+
+h3 {
+    display: inline-block;
+    color: white;
+    font-family: 'Kelly Slab';
+}
+
+h4 {
+    display: inline-block;
+    color: white;
+    vertical-align: middle;
+    padding: 5px;
+}
+
+h5 {
+  color: white;
+  font-size: 20px;
+}
+
+hr {
+    margin: 10px 0 0 0;
+}
+
+strong {
+  font-weight: bold;
+  color: #1dc415;
+}
+
+
+.well {
+    background-color: black;
+    border: none;
+}
+
+
+
+.borderless th, .borderless td {
+    color: white;
+    border-top: none !important;
+}
+
+
+
+
+.navButtons {
+    background-color: transparent;
+    font-size: 12px;
+}
+
+.navButtons .navButtons:hover {
+    background-color: blue;
+}
+
+#navTabs {
+    margin: 10px 15px;
+    padding: 10px 15px;
+}
+
+
+/* Register/Login */
+
+
+/* Message Board */
+
+.topic {
+    color: white;
+    background-color: #1c1f23;
+    padding: 10px;
+}
+
+.topic ul li {
+    list-style: none;
+}
+
+#messageEmail {
+    color: white;
+}
+
+#postMessageButton {
+    float: right;
+}
+
+#updateCommentButton {
+    float: right;
+    display: inline-block;
+    vertical-align: baseline;
+    padding: 5px;
+    margin: 5px;
+}
+
+#updateMessageButton {
+    float: right;
+    display: inline-block;
+    vertical-align: baseline;
+    padding: 5px;
+    margin: 5px;
+}
+
+#message {
+    margin: 10px;
+    padding: 15px;
+    border: 1px solid #061438;
+    background-color: #282828;
+    border-radius: 20px;
+    color: white;
+}
+
+#comment {
+    margin: 17px;
+    padding: 10px;
+    border: 1px solid #061438;
+    background: linear-gradient(to left, #000000, #434343);
+    border-radius: 20px;
+    color: white;
+}
+
+#messagePostForm {
+    margin: 10px;
+    padding: 10px;
+}
+
+#postedDate {
+    float: right;
+    font-style: italic;
+    color: white;
+}
+
+#commentsShow {
+    float: right;
+    display: inline-block;
+    padding: 5px;
+    margin: 5px;
+}
+
+#deletePost {
+    float: right;
+    display: inline-block;
+    padding: 5px;
+    margin: 5px;
+    vertical-align: baseline;
+}
+
+#deleteComment {
+    float: right;
+    display: inline-block;
+    padding: 5px;
+    margin: 5px;
+    vertical-align: baseline;
+}
+
+#messageEmail {
+    float: left;
+}
+
+#usersList {
+    margin: 10px 20px;
+    background-color: #1c1f23;
+    border-radius: 20px;
+    border: none;
+}
+
+#usersListPanel {
+    border-radius: 20px;
+    border: none;
+}
+
+#searchUsersGroup {
+    border-radius: 30px;
+    margin: 10px;
+}
+
+#searchUsers {
+    border-radius: 30px;
+}
+
+.left-inner-addon {
+    position: relative;
+}
+
+.left-inner-addon input {
+    padding-left: 30px;
+}
+
+.left-inner-addon i {
+    position: absolute;
+    padding: 10px 12px;
+    pointer-events: none;
+}
+
+#loginError {
+    height: auto;
+    width: auto;
+}
+
+
+
+#errorMessage {
+    margin: 10px;
+}
+
+#updateName {
+    display: inline;
+}
+
+#userImage {
+    border-radius: 50px;
+    width: 100px;
+    height: 100px;
+    float: left;
+}
+
+#commentImage {
+    border-radius: 10px;
+    width: 50px;
+    height: 50px;
+    float: left;
+    display: inline-block;
+}
+
+.commentHeading {
+    display: inline-block;
+    color: white;
+    padding: 10px;
+}
+
+#userImage3 {
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
+    float: right;
+    display: inline-block;
+}
+
+#userImage4 {
+    border-radius: 10px;
+    width: 75px;
+    height: 75px;
+    float: left;
+    margin: 5px;
+    display: inline-block;
+}
+
+#footer {
+    padding: 15px;
+    color: white;
+}
+
+
+
+
+/* Profile Page*/
+
+#detailsValue {
+    float: right;
+}
+
+/*Dark Blue background-color: #070f1c;*/
+/*Dark Grey - background-color: #1c1f23;*/
+/*Light Blue background-color: #111b2b;*/
+
+
+.panel {
+  background-color: #1c1f23;
+  color: white;
+  border: 2px solid #070f1c;
+
+}
+
+.panel-heading {
+  background-color: #070f1c;
+  border: 2px solid #070f1c;
+}
+
+.panel-footer {
+  background-color: #070f1c;
+  border: 2px solid #070f1c;
+  padding: 0px;
+}
+
+
+.table {
+    background-color: #1c1f23;
+    color: white
+}
+
+/* Microphones */
+#micForm {
+  color: white
+}
+
+#phantomPower {
+  background-color: #1c1f23;
+  color: white;
+}
+
+#micThumbnail {
+  height: 110px;
+  width: auto;
+  padding: 10px;
+  /*border: 2px solid black;*/
+  border-radius: 10px;
+}
+
+#micThumbnail2 {
+  height: 200px;
+  width: auto;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.caption {
+  background-color: #1c1f23;
+  color: white;
+  text-align: center;
+
+}
+
+#micTitle1 {
+  display: block;
+}
+
+#micTitle2 {
+  display: block;
+}
+
+#micSelector {
+  margin: 8px;
+}
+
+.customSearch {
+  margin: 8px;
+  border-radius: 10px;
+  color: white;
+}
+
+.filterTypeSelect {
+  background-color: #1c1f23;
+  color: white;
+}
+
+.filterManufacturerSelect {
+  background-color: #1c1f23;
+  color: white;
+}
+
+#micFilters {
+  background-color: #1c1f23;
+  color: white;
+  padding: 10px;
+  margin: 8px;
+}
+
+.pagination {
+  background-color: #1c1f23;
+  color: white;
+}
+
+
+.btn-toolbar {
+  display: inline;
+}

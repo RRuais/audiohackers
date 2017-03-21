@@ -1,0 +1,180 @@
+#spectrum {
+    border-radius: 20px;
+    border: 4px solid black;
+    width: 90%;
+    height: auto;
+}
+
+#scope {
+    border-radius: 20px;
+    border: 4px solid black;
+    width: 90%;
+    height: auto;
+}
+
+#scope2 {
+    border-radius: 20px;
+}
+
+.oscInputValues {
+    margin: 0px;
+    padding: 5px;
+    width: 95%;
+}
+
+.synthDescription {
+    font-size: 16px;
+}
+
+.waveGenPics {
+    height: 60%;
+    width: 60%;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.waveGenPicsLrg {
+    height: 90%;
+    width: 90%;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.waveGenLogo {
+    height: 90%;
+    width: 90%;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.list-group-item {
+    background-color: #1c1f23;
+    color: white;
+    border: none;
+}
+
+#spectrum {
+    background-color: #091F26;
+}
+
+.waveButtons {
+    width: 100%;
+    height: auto;
+    border: 1px solid black;
+    -webkit-border-radius: px;
+    -moz-border-radius: px;
+    border-radius: px;
+    width: px;
+    font-size: px;
+    font-family: arial, helvetica, sans-serif;
+    padding: 10px 10px 10px 10px;
+    text-decoration: none;
+    display: inline-block;
+    color: #FFFFFF;
+    background-color: #7d7e7d;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#7d7e7d), to(#0e0e0e));
+    background-image: -webkit-linear-gradient(top, #7d7e7d, #0e0e0e);
+    background-image: -moz-linear-gradient(top, #7d7e7d, #0e0e0e);
+    background-image: -ms-linear-gradient(top, #7d7e7d, #0e0e0e);
+    background-image: -o-linear-gradient(top, #7d7e7d, #0e0e0e);
+    background-image: linear-gradient(to bottom, #7d7e7d, #0e0e0e);
+    filter: progid: DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#7d7e7d, endColorstr=#0e0e0e);
+}
+
+.waveButtons:active {
+    border: 1px solid black;
+    background-color: #646464;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#646464), to(#282828));
+    background-image: -webkit-linear-gradient(top, #646464, #282828);
+    background-image: -moz-linear-gradient(top, #646464, #282828);
+    background-image: -ms-linear-gradient(top, #646464, #282828);
+    background-image: -o-linear-gradient(top, #646464, #282828);
+    background-image: linear-gradient(to bottom, #646464, #282828);
+    filter: progid: DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#646464, endColorstr=#282828);
+}
+
+.waveButtons:focus {
+    outline: none;
+}
+
+.switchLabel {
+    color: transparent;
+    background: url('http://rainycafe.com/img/sprite.png') -40px 0 no-repeat;
+    border-radius: 14px;
+    box-shadow: 0 1px 2px #888, 0 0px 3px #777, inset 0 -1px 5px #333;
+    display: block;
+    position: relative;
+    text-indent: 100%;
+    width: 65px;
+    height: 29px;
+    -webkit-transition: background-position .3s ease;
+    -moz-transition: background-position .3s ease;
+    cursor: pointer;
+    font-size: .01em;
+    float: left;
+}
+
+.switchLabel span {
+    background: url('http://rainycafe.com/img/sprite.png') -1px -30px no-repeat;
+    border: 0px solid transparent;
+    border-radius: 14px;
+    box-shadow: 0 1px 3px #000, 0 2px 13px #000;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -1px;
+    width: 28px;
+    height: 28px;
+    -webkit-transition: left .3s ease;
+    -moz-transition: left .3s ease;
+}
+
+input[type=checkbox]:checked+.switchLabel {
+    background-position: 0 0;
+}
+
+input[type=checkbox]:checked+.switchLabel span {
+    left: 40px;
+}
+
+input[type=checkbox] {
+    display: none;
+}
+
+#masterVolume {
+    background-color: #1c1f23;
+    padding: 20px;
+}
+
+#masterVolumeSlider {
+    margin: 0px 0px 20px 70px;
+    position: absolute;
+    left: 24px;
+    height: 15px;
+    width: 300px;
+    background: url('http://iviewsource.com/exercises/audioslider/images/volume-empty.png') no-repeat left top;
+    border: none;
+    outline: none;
+}
+
+#masterVolumeSlider .ui-slider-range-min {
+    height: 15px;
+    width: 300px;
+    position: absolute;
+    background: url('http://iviewsource.com/exercises/audioslider/images/volume-full.png') no-repeat left top;
+    border: none;
+    outline: none;
+}
+
+#masterVolumeSlider .ui-slider-handle {
+    width: 38px;
+    height: 39px;
+    background: url('http://iviewsource.com/exercises/audioslider/images/volume-knob.png') no-repeat left top;
+    position: absolute;
+    margin-left: -15px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+}

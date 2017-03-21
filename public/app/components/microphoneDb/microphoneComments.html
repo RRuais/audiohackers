@@ -1,0 +1,139 @@
+<div class="row" ng-init="showComments()">
+
+    <div class="col-md-6">
+          <h2><a ng-click="goToMicrophoneDetails(mic)" class="">{{mic.manufacturer}}&nbsp;{{mic.model}}</a></h2>
+        <div id="message">
+            <div class="row">
+                <div class="col-md-2">
+                    <image id="userImage4" ng-src="{{message.userImage}}" class="img-responsive">
+                </div>
+
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p id="messageEmail">{{message.userEmail}}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p id="postedDate">{{message.createdAt | date: 'medium'}}</p>
+                        </div>
+                    </div>
+                    <h4>{{message.title}}</h4>
+                    <div ng-bind-html="message.content" class="well">
+                        <p>{{message.content}}</p>
+                    </div>
+
+                    <div class="row">
+                      <a id="deletePost" ng-show="checkUserForDelete(message.userId)  || isAdmin()" ng-click="deleteMessage(message._id)"><i class="fa fa-trash-o fa-lg"></i> Delete Post</a>
+                      <!-- Modal -->
+                      <a id="updateMessageButton" ng-show="checkUserForDelete(message.userId)" type="button" data-toggle="modal" data-target="#myModal3"><i class="fa fa-pencil-square-o"></i> Update Message</a>
+                      <div id="myModal3" class="modal fade" role="dialog">
+                          <div class="modal-dialog">
+                              <div class="modal-content">
+                                  <div class="modal-header">
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                      <h4 class="modal-title">Update Message!</h4>
+                                  </div>
+                                  <div class="modal-body">
+                                      <div class=row>
+                                          <form ng-submit="updateMessageFromComments({id: message._id, content: message.content})" name="messageForm3" novalidate>
+                                              <div class="form-group">
+                                                <div class="row">
+                                                  <div class="col-md-2">
+                                                    <h4>Title:</h4>
+                                                  </div>
+                                                  <div class="col-md-10">
+                                                    <input class="form-control" type="text" name="title" ng-model="message.title">
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <textarea ui-tinymce="tinymceOptions" name="content" ng-model="message.content"></textarea>
+                                              <input ng-disabled="messageForm3.$invalid" class="btn btn-primary" type="submit" value="Post">
+                                          </form>
+                                      </div>
+                                  </div>
+                                  <div class="modal-footer">
+                                      <button type="button" class="btn btn-primary btn-round" data-dismiss="modal">Close</button>
+                                  </div>
+                              </div>
+
+                          </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="col-md-6">
+        <!-- Trigger the modal with a button -->
+        <div class="row">
+            <button id="postMessageButton" type="button" class="btn btn-info btn-lg btn-round" data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil-square-o"></i> Post a Comment!</button><br>
+            <hr>
+        </div>
+        <!-- Modal -->
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Post a Comment!</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div>
+                            <form ng-submit="postComment(message._id)" name="commentForm" novalidate>
+                                <textarea ui-tinymce="tinymceOptions" name="content" ng-model="content"></textarea>
+                                <input ng-disabled="commentForm.$invalid" class="btn btn-primary" type="submit" value="Post">
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary btn-round" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="comment" class="media" ng-repeat="comment in comments | orderBy : createdAt : true">
+            <div class="media-left">
+                <image id="commentImage" ng-src="{{comment.userImage}}" class="media-object">
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading commentHeading">{{comment.userEmail}}</h4>
+                <p id="postedDate" class="media-heading  commentHeading">{{comment.createdAt | date: 'medium'}}</p>
+                <div ng-bind-html="comment.content" class="well">
+                    <p>{{comment.content}}</p>
+                </div>
+                <a id="deleteComment" ng-show="checkUserForDelete(comment.userId) || isAdmin()" ng-click="delete(comment._id, message._id)"><i class="fa fa-trash-o fa-lg"></i> Delete Comment</a>
+                <!-- Modal -->
+                <a id="updateCommentButton" type="button" ng-show="checkUserForDelete(comment.userId)" data-toggle="modal" data-target="#myModal2"><i class="fa fa-pencil-square-o"></i> Update Comment</a>
+                <div id="myModal2" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Update Comment!</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div>
+                                    <form ng-submit="updateComment({commentId: comment._id, messageId: message._id, content: comment.content})" name="commentForm2" novalidate>
+                                        <textarea ui-tinymce="tinymceOptions" name="comment.content" ng-model="comment.content"></textarea>
+                                        <input ng-disabled="commentForm2.$invalid" class="btn btn-primary" type="submit" value="Post">
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary btn-round" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End row -->
+</div>

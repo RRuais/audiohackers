@@ -1,0 +1,216 @@
+<div ng-init="getMicrophoneDetails()">
+    <h1>{{mic.manufacturer}}&nbsp;&nbsp;{{mic.model}}</h1>
+    <div class="row">
+        <div class="col-md-4">
+            <img ng-src="{{mic.image}}" id="micThumbnail2" alt="Mic Thumnails">
+        </div>
+        <div class="col-md-8">
+            <table class="table borderless table-condensed">
+                <thead>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Manufacturer:</td>
+                        <td>{{mic.manufacturer}}</td>
+                    </tr>
+                    <tr>
+                        <td>Model:</td>
+                        <td>{{mic.model}}</td>
+                    </tr>
+                    <tr>
+                        <td>Pickup Patterns:</td>
+                        <td>{{mic.pickupPatterns}}</td>
+                    </tr>
+                    <tr>
+                        <td>Type:</td>
+                        <td>{{mic.type}}</td>
+                    </tr>
+                    <tr>
+                        <td>Impedance:</td>
+                        <td>{{mic.impedance}}</td>
+                    </tr>
+                    <tr>
+                        <td>Pads:</td>
+                        <td>{{mic.pads}}</td>
+                    </tr>
+                    <tr>
+                        <td>Filters:</td>
+                        <td>{{mic.filters}}</td>
+                    </tr>
+                    <tr>
+                        <td>Phantom Power:</td>
+                        <td>{{mic.phantomPower}}</td>
+                    </tr>
+                    <tr>
+                        <td>SPL/Noise:</td>
+                        <td>{{mic.splNoise}}</td>
+                    </tr>
+                    <tr>
+                        <td>Description:</td>
+                        <td ng-bind-html="mic.description">{{mic.description}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <h1>Discussions</h1>
+    <div class="row">
+        <!-- Trigger the modal with a button -->
+        <button id="postMessageButton" type="button" class="btn btn-info btn-lg btn-round" data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil-square-o"></i> Start a Thread!</button>
+        <!-- Modal -->
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Post a Message!</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <form ng-submit="postMessage(mic._id)" name="messageForm" novalidate>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <h4>Title:</h4>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <input class="form-control" type="text" name="title" ng-model="title">
+                                        </div>
+                                    </div>
+                                </div>
+                                <textarea ui-tinymce="tinymceOptions" name="content" ng-model="content"></textarea>
+                                <input ng-disabled="messageForm.$invalid" class="btn btn-primary" type="submit" value="Post">
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary btn-round" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-md-7" ng-init='getMessagesFromMicId(mic._id)'>
+            <div id="message" ng-repeat="message in messages | orderBy : createdAt : true">
+                <div class="row">
+                    <div class="col-md-2">
+                        <image id="userImage4" ng-src="{{message.userImage}}" class="img-responsive">
+                    </div>
+                    <div class="col-md-10">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p id="messageEmail">{{message.userEmail}}</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p id="postedDate">{{message.createdAt | date: 'medium'}}</p>
+                            </div>
+                        </div>
+                        <h4>{{message.title}}</h4>
+                        <div ng-bind-html="message.content" class="well">
+                            <p>{{message.content}}</p>
+                        </div>
+                        <div class="row">
+                            <a id="deletePost" ng-show="checkUserForDelete(message.userId) || isAdmin()" ng-click="deleteMessage(message._id)"><i class="fa fa-trash-o fa-lg"></i> Delete Post</a>
+                            <a id="commentsShow" ui-sref="microphoneComments({ id: message._id })"><i class="fa fa-comments" aria-hidden="true"></i> Show Comments</a>
+                            <!-- Modal -->
+                            <a id="updateMessageButton" ng-show="checkUserForDelete(message.userId)" type="button" data-toggle="modal" data-target="#myModal3"><i class="fa fa-pencil-square-o"></i> Update Message</a>
+                            <div id="myModal3" class="modal fade" role="dialog">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">Update Message!</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <form ng-submit="updateMessage({id: message._id, content: message.content})" name="messageForm3" novalidate>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-md-2">
+                                                                <h4>Title:</h4>
+                                                            </div>
+                                                            <div class="col-md-10">
+                                                                <input class="form-control" type="text" name="title" ng-model="message.title">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <textarea ui-tinymce="tinymceOptions" name="content" ng-model="message.content"></textarea>
+                                                    <input ng-disabled="messageForm3.$invalid" class="btn btn-primary" type="submit" value="Post">
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary btn-round" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="col-md-5">
+        <form ng-show="isAdmin()" id="micForm" name="micForm" ng-model="mic" ng-submit="updateMicrophone()">
+            <div class="form-group">
+                <label>Manufacturer:</label>
+                <input type="text" class="form-control" ng-model="mic.manufacturer">
+            </div>
+            <div class="form-group">
+                <label>Model:</label>
+                <input type="text" class="form-control" ng-model="mic.model">
+            </div>
+            <div class="form-group">
+                <label>PicupPatterns:</label>
+                <input type="text" class="form-control" ng-model="mic.pickupPatterns">
+            </div>
+            <div class="form-group">
+                <label>Type:</label>
+                <input type="text" class="form-control" ng-model="mic.type">
+            </div>
+            <div class="form-group">
+                <label>Impedance:</label>
+                <input type="text" class="form-control" ng-model="mic.impedance">
+            </div>
+            <div class="form-group">
+                <label>Pads:</label>
+                <input type="text" class="form-control" ng-model="mic.pads">
+            </div>
+            <div class="form-group">
+                <label>filters:</label>
+                <input type="text" class="form-control" ng-model="mic.filters">
+            </div>
+            <div class="form-group">
+                <label>Phantom Power:</label>
+                <select ng-model="mic.phantomPower" id="phantomPower">
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+            </div>
+            <div class="form-group">
+                <label>SPL/Noise:</label>
+                <input type="text" class="form-control" ng-model="mic.splNoise">
+            </div>
+            <div class="form-group">
+                <label>Image:</label>
+                <input type="text" class="form-control" ng-model="mic.image">
+            </div>
+            <div class="form-group">
+                <label>Description:</label>
+                <textarea class="form-control" ui-tinymce="tinymceOptions" ng-model="mic.description" required></textarea>
+            </div>
+            <input type="submit" class="btn btn-primary" value="Submit">
+        </form>
+    </div>
+
+
+    <!-- End Row -->
+</div>

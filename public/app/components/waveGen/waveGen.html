@@ -1,0 +1,224 @@
+<div class="row">
+
+    <h1>Wave Generator</h1>
+
+    <div class="col-md-4">
+        <div class="caption">
+
+            <div class="panel">
+                <div class="panel-heading">
+                    <h4>Ten Sine Wave Oscillators</h4>
+                </div>
+                <div class="panel-body">
+                    <p><strong>Fill Input Values - </strong>Enter a frequency and amplitude value into oscillator 1 then use the Square, Triangle or Sawtooth buttons to fill in the coresponding values. </p>
+                </div>
+                <div class="panel-footer">
+                    <table class="table borderless table-condensed">
+                        <tbody>
+                            <tr>
+                                <td><button id="fillSqaureValues" class="waveButtons " type="button">Square</button></td>
+                                <td><button id="fillSawValues" class="waveButtons" type="button">Sawtooth</button></td>
+                                <td><button id="fillTriangleValues" class="waveButtons" type="button">Triangle</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+            <table class="table borderless table-condensed" id="oscTable">
+                <thead>
+                    <th>On/Off</th>
+                    <th>Frequency (20 - 20000)</th>
+                    <th>Amplitude (0...1)</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input id="osc1" type="checkbox"><label class="switchLabel" for="osc1"><span>Power</span></label></td>
+                        <td><input id="osc1Freq" class="oscInputValues" type="text" name="osc1Freq" value="0"></td>
+                        <td><input id="osc1VolInput" class="oscInputValues" type="text" name="" value="0"></td>
+                    </tr>
+                    <tr>
+
+                        <td><input id="osc2" type="checkbox"><label class="switchLabel" for="osc2"><span>Power</span></label></td>
+                        <td><input id="osc2Freq" class="oscInputValues" type="text" name="osc2Freq" value="0"></td>
+                        <td><input id="osc2VolInput" class="oscInputValues" type="text" name="" value="0"></td>
+                    </tr>
+                    <tr>
+
+                        <td><input id="osc3" type="checkbox"><label class="switchLabel" for="osc3"><span>Power</span></label></td>
+                        <td><input id="osc3Freq" class="oscInputValues" type="text" name="osc3Freq" value="0"></td>
+                        <td><input id="osc3VolInput" class="oscInputValues" type="text" name="" value="0"></td>
+                    </tr>
+                    <tr>
+
+                        <td><input id="osc4" type="checkbox"><label class="switchLabel" for="osc4"><span>Power</span></label></td>
+                        <td><input id="osc4Freq" class="oscInputValues" type="text" name="osc4Freq" value="0"></td>
+                        <td><input id="osc4VolInput" class="oscInputValues" type="text" name="" value="0"></td>
+                    </tr>
+                    <tr>
+
+                        <td><input id="osc5" type="checkbox"><label class="switchLabel" for="osc5"><span>Power</span></label></td>
+                        <td><input id="osc5Freq" class="oscInputValues" type="text" name="osc5Freq" value="0"></td>
+                        <td><input id="osc5VolInput" class="oscInputValues" type="text" name="" value="0"></td>
+                    </tr>
+                    <tr>
+
+                        <td><input id="osc6" type="checkbox"><label class="switchLabel" for="osc6"><span>Power</span></label></td>
+                        <td><input id="osc6Freq" class="oscInputValues" type="text" name="osc6Freq" value="0"></td>
+                        <td><input id="osc6VolInput" class="oscInputValues" type="text" name="" value="0"></td>
+                    </tr>
+                    <tr>
+
+                        <td><input id="osc7" type="checkbox"><label class="switchLabel" for="osc7"><span>Power</span></label></td>
+                        <td><input id="osc7Freq" class="oscInputValues" type="text" name="osc7Freq" value="0"></td>
+                        <td><input id="osc7VolInput" class="oscInputValues" type="text" name="" value="0"></td>
+                    </tr>
+                    <tr>
+
+                        <td><input id="osc8" type="checkbox"><label class="switchLabel" for="osc8"><span>Power</span></label></td>
+                        <td><input id="osc8Freq" class="oscInputValues" type="text" name="osc8Freq" value="0"></td>
+                        <td><input id="osc8VolInput" class="oscInputValues" type="text" name="" value="0"></td>
+                    </tr>
+                    <tr>
+
+                        <td><input id="osc9" type="checkbox"><label class="switchLabel" for="osc9"><span>Power</span></label></td>
+                        <td><input id="osc9Freq" class="oscInputValues" type="text" name="osc9Freq" value="0"></td>
+                        <td><input id="osc9VolInput" class="oscInputValues" type="text" name="" value="0"></td>
+                    </tr>
+                    <tr>
+
+                        <td><input id="osc10" type="checkbox"><label class="switchLabel" for="osc10"><span>Power</span></label></td>
+                        <td><input id="osc10Freq" class="oscInputValues" type="text" name="osc10Freq" value="0"></td>
+                        <td><input id="osc10VolInput" class="oscInputValues" type="text" name="" value="0"></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="col-md-2" id="waveShapes">
+        <div class="caption">
+            <div class="panel">
+                <div class="panel-heading">
+                    <h5>Wave Shapes at 440hz:</h5>
+                </div>
+                <div class="panel-body">
+                    <ul id="waveGenButtonList" class="list-group">
+                        <li class="list-group-item"><button id="oscSquare" class="waveButtons" type="button"><i class="fa fa-play fa-lg"></i>&nbsp;&nbsp;Square</button></li>
+                        <li class="list-group-item"><button id="oscSaw" class="waveButtons" type="button"><i class="fa fa-play fa-lg"></i>&nbsp;&nbsp;Sawtooth</button></li>
+                        <li class="list-group-item"><button id="oscTri" class="waveButtons" type="button"><i class="fa fa-play fa-lg"></i>&nbsp;&nbsp;Triangle</button></li>
+                    </ul>
+                </div>
+                <div class="panel-heading">
+                    <h4>Power:</h4></li>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-group">
+                        <li class="list-group-item"><button id="allOff" class="waveButtons" type="button"><i class="fa fa-power-off fa-lg"></i>&nbsp;&nbsp;On/Off Swap</button></li>
+                        <li class="list-group-item"><button id="resetAll" class="waveButtons" type="button"><i class="fa fa-power-off fa-lg"></i>&nbsp;&nbsp;Kill Switch </button></li>
+                        <li class="list-group-item"><button id="oscOctaveOnOff" class="waveButtons" type="button"><i class="fa fa-power-off fa-lg"></i>&nbsp;&nbsp;Octaves On</button></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-5">
+        <div class="caption">
+            <div class="panel">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div id="masterVolume">
+                                <h4>Master Volume:</h4>
+                                <div id="masterVolumeSlider" class="ui-slider"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <canvas id='scope'></canvas>
+                        <br>
+                        <canvas id='spectrum'></canvas>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <div id="errorMessage" class="alert alert-danger">TURN DOWN YOUR SPEAKER VOLUME BEFORE PLAYING!</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- End Row -->
+</div>
+
+<h1>Additive Synthesis</h1>
+<div class="row panel-body">
+    <div class="row">
+        <div class="col-md-6">
+            <ul>
+                <li>
+                    <h5 class="synthDescription">Additive synthesis is a technique that creates waveforms by adding sine waves together.</h5></li>
+                <li>
+                    <h5 class="synthDescription">Any sound can be made by combining a series of sine waves at various frequencies and amplitudes to create a new, harmonically-rich waveform.</h5></li>
+                <li>
+                    <h5 class="synthDescription">The Wave Generator above can further explain this by allowing the user to visualize what happens to a fundamental frequency when other sine waves are added to it at various harmonic intervals and amplitudes.</h5></li>
+                <li>
+                    <h5 style="color:red" class="synthDescription">START BY MAKING SURE YOUR COMPUTER'S SPEAKER VOLUME IS SET TO A LOW LEVEL!</h5></li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+
+        </div>
+    </div>
+</div>
+
+<!-- <h1>Wave Generator - How To</h1>
+
+<div id="howTo">
+
+    <div class="row panel-body">
+        <div class="col-md-6">
+            <ul>
+                <li>
+                    <h4 class="synthDescription">Press the Play Square button to trigger a wave. Gradually turn up the Master Volume and examine the waveform in the graph.</h4></li>
+            </ul>
+            <img class="waveGenPics" src="/app/assets/images/playSquare.png" alt="Wave Generator Images">
+        </div>
+        <div class="col-md-6">
+            <ul>
+                <li>
+                    <h4 class="synthDescription">Press the Play Triangle button to trigger a wave. Gradually turn up the Master Volume and examine the waveform in the graph.</h4></li>
+            </ul>
+            <img class="waveGenPics" src="/app/assets/images/playTriangle.png" alt="Wave Generator Images">
+        </div>
+    </div>
+    <div class="row panel-body">
+        <div class="col-md-12">
+            <ul>
+                <li>
+                    <h4 class="synthDescription">Using the 10 Sine Wave Oscillators, enter a frequency value of 440 (A note) and an amplitude value of 1 into the first oscillator. Press either the Square Wave or Triangle Wave button to fill in the coresponding values. Start turning the oscillators on one at a time and observer how the waveform changes!</h4></li>
+            </ul>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <img class="waveGenPicsLrg" src="/app/assets/images/10oscgen.png" alt="Wave Generator Images">
+            </div>
+            <div class="col-md-3">
+                <img class="waveGenPicsLrg" src="/app/assets/images/10oscgen2.png" alt="Wave Generator Images">
+            </div>
+            <div class="col-md-3">
+                <img class="waveGenPicsLrg" src="/app/assets/images/10oscgen3.png" alt="Wave Generator Images">
+            </div>
+            <div class="col-md-3">
+                <img class="waveGenPicsLrg" src="/app/assets/images/10oscgen4.png" alt="Wave Generator Images">
+            </div>
+        </div>
+    </div>
+</div> -->

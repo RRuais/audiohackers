@@ -1,0 +1,75 @@
+<div class="row" ng-init="getTopics()">
+    <!-- Trigger the modal with a button -->
+    <button ng-show="isAdmin()" id="postMessageButton" type="button" class="btn btn-info btn-lg btn-round" data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil-square-o"></i> Add a Topic!</button>
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Add a Topic</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="topicPostForm">
+                        <form ng-submit="postTopic()" name="topicForm" novalidate>
+                            <label>Title:</label>
+                            <textarea ng-model="topic" name="topic" rows="6" cols="64" style="overflow:auto;resize:none" required></textarea><br>
+                            <label>Category:</label>
+                            <input type="text" name="category" ng-model="category" value="">
+                            <input ng-disabled="topicForm.$invalid" class="btn btn-primary" type="submit" value="Post">
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-round" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12" ng-init="getUserMessages()">
+        <h1>Discussion Topics</h1>
+        <h2>Software:</h2>
+        <div class="left-inner-addon">
+            <i class="fa fa-search"></i>
+            <input class="form-control customSearch" ng-model="filterTopic" type="text" placeholder="Search Software Topics">
+        </div>
+
+        <div class="topic" ng-repeat="topic in softwareTopics | filter: filterTopic | startFrom:(currentPage - 1)*pageSize | limitTo: pageSize">
+            <div class="row">
+                <div class="col-md-12">
+                    <ul id="menu">
+                        <li><a ng-click="goToMessageBoard({topicId: topic._id, title: topic.title})" class="pull-left">{{topic.title}}</a>
+                            <p class="pull-right">Messages: <span class="badge">{{topic.count}}</span></p>
+                        </li>
+                        <li ng-show="isAdmin()"><a id="deletePost" ng-click="deleteTopic(topic._id)"><i class="fa fa-trash-o fa-lg"></i> Delete Topic</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <ul uib-pagination total-items="softwareTopics.length" ng-model="currentPage" class="pagination pagination-sm" items-per-page='pageSize'></ul>
+
+        <h2>Hardware:</h2>
+        <div class="left-inner-addon">
+            <i class="fa fa-search"></i>
+            <input class="form-control customSearch" ng-model="filterTopic2" type="text" placeholder="Search Hardware Topics">
+        </div>
+        <h4><a ui-sref="micDb" class="pull-left">Microphone Database</a></h4>
+        <div class="topic" ng-repeat="topic in hardwareTopics | filter: filterTopic2 | startFrom:(currentPage2 - 1)*pageSize2 | limitTo: pageSize2">
+            <div class="row">
+                <div class="col-md-12">
+                    <ul id="menu">
+                        <li><a ng-click="goToMessageBoard({topicId: topic._id, title: topic.title})" class="pull-left">{{topic.title}}</a>
+                            <p class="pull-right">Messages: <span class="badge">{{topic.count}}</span></p>
+                        </li>
+                        <li ng-show="isAdmin()"><a id="deletePost" ng-click="deleteTopic(topic._id)"><i class="fa fa-trash-o fa-lg"></i> Delete Topic</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <ul uib-pagination total-items="hardwareTopics.length" ng-model="currentPage2" class="pagination pagination-sm" items-per-page='pageSize2'></ul>
+    </div>
+    <!-- End right col -->
+</div>
+<!-- End row -->

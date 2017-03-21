@@ -1,0 +1,101 @@
+<div class="row" ng-init="getAllMicrophones()">
+    <h1>Microphone Database</h1>
+
+    <div id="micFilters" class="col-md-3">
+        <div class="left-inner-addon">
+            <i class="fa fa-search"></i>
+            <input class="form-control customSearch" ng-model="filterName" type="text" placeholder="Search Microphones">
+        </div>
+        <table class="table table-condensed borderless">
+          <tbody>
+            <tr>
+              <td><label for="types">Filter by type:</label></td>
+              <td><select name='types' class="filterTypeSelect" ng-options="type for type in listOfTypes" ng-model="selectedItem" ng-change="filterByType()"></select></td>
+            </tr>
+            <tr>
+              <td><label for="types">Filter by manufacturer:</label></td>
+              <td><select name='types' class="filterManufacturerSelect" ng-options="type for type in listOfManufacturers" ng-model="selectedItem2" ng-change="filterByManufacturer()"></select></td>
+            </tr>
+          </tbody>
+        </table>
+        <button class="ui-button uiButtons" ng-click="resetFilter()">Reset Filters</button><br>
+        <ul uib-pagination total-items="microphones.length" ng-model="currentPage" class="pagination pagination-sm" items-per-page='pageSize'></ul>
+    </div>
+
+
+    <div class="col-md-8">
+        <div class="col-sm-4 col-md-3" ng-repeat="mic in microphones | filter: filterName | filter: filterType | startFrom:(currentPage - 1)*pageSize | limitTo: pageSize" id="micSelector">
+            <div class="thumbnail">
+                <div class="row">
+                    <a ng-click="goToMicrophoneDetails(mic)"><img ng-src="{{mic.image}}" id="micThumbnail" alt="Mic Thumnails"></a>
+                </div>
+                <div class="caption">
+                    <h5 id="micTitle1">{{mic.manufacturer}}</h5>
+                    <h5 id="micTitle2">{{mic.model}}</h5>
+                    <a ng-show="isAdmin()" id="deletePost" ng-click="deleteMicrophone(mic._id)"><i class="fa fa-trash-o fa-lg"></i> Delete Microphone</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- <div class="row">
+        <div class="col-md-4">
+            <form ng-show="isAdmin()" id="micForm" name="micForm" ng-model="mic" ng-submit="postMicrophone()">
+                <div class="form-group">
+                    <label>Manufacturer:</label>
+                    <input type="text" class="form-control" ng-model="mic.manufacturer">
+                </div>
+                <div class="form-group">
+                    <label>Model:</label>
+                    <input type="text" class="form-control" ng-model="mic.model">
+                </div>
+                <div class="form-group">
+                    <label>PicupPatterns:</label>
+                    <input type="text" class="form-control" ng-model="mic.pickupPatterns">
+                </div>
+                <div class="form-group">
+                    <label>Type:</label>
+                    <input type="text" class="form-control" ng-model="mic.type">
+                </div>
+                <div class="form-group">
+                    <label>Impedance:</label>
+                    <input type="text" class="form-control" ng-model="mic.impedance">
+                </div>
+                <div class="form-group">
+                    <label>Pads:</label>
+                    <input type="text" class="form-control" ng-model="mic.pads">
+                </div>
+                <div class="form-group">
+                    <label>filters:</label>
+                    <input type="text" class="form-control" ng-model="mic.filters">
+                </div>
+                <div class="form-group">
+                    <label>Phantom Power:</label>
+                    <select ng-model="mic.phantomPower" id="phantomPower">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+                </div>
+                <div class="form-group">
+                    <label>Image:</label>
+                    <input type="text" class="form-control" ng-model="mic.image">
+                </div>
+                <div class="form-group">
+                    <label>SPL/Noise:</label>
+                    <input type="text" class="form-control" ng-model="mic.splNoise">
+                </div>
+                <div class="form-group">
+                    <label>Description:</label>
+                    <textarea ng-model="mic.description" rows="8" cols="80"></textarea>
+                </div>
+                <input type="submit" class="btn btn-primary" value="Submit">
+            </form>
+        </div>
+    </div>
+
+ -->
+
+
+    <!-- End Row -->
+</div>

@@ -1,0 +1,12 @@
+.modal-content {
+    background: #30353b url("/app/assets/css/images/bg.png");
+    color: white;
+}
+
+.modal-body {
+  padding: 30px;
+}
+
+.form-control {
+  margin: 10px;
+}
