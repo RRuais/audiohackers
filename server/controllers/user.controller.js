@@ -1,7 +1,7 @@
 var User = require('mongoose').model('User');
 var Message = require('mongoose').model('Message');
 var Comment = require('mongoose').model('Comment');
-var fs = require('fs-extra');
+// var fs = require('fs-extra');
 var path = require('path');
 var bcrypt = require('bcryptjs');
 var mongoose = require('mongoose');
