@@ -2,7 +2,7 @@ var config = require('./config');
 var mongoose = require('mongoose');
 
 module.exports = function() {
-    var db = mongoose.connect(config.db);
+    var db = mongoose.connect(config.dbURI);
 
     //Load models
     require('../models/user.model');
