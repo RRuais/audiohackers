@@ -1,5 +1,5 @@
 module.exports = {
-  db: process.env.dbURI,
+  dbURI: process.env.dbURI,
   sessionSecret: process.env.sessionSecret,
   // facebook: {
   //   clientID: '1292626007485364',
