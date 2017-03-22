@@ -2,7 +2,7 @@ var config = require('./config');
 var express = require('express');
 var session = require("express-session");
 var bodyParser = require('body-parser');
-var passport = require('passport');
+// var passport = require('passport');
 var cookieParser = require('cookie-parser');
 var path = require('path');
 
@@ -23,9 +23,9 @@ module.exports = function() {
         resave: true
     }));
 
-    app.use(passport.initialize());
-    app.use(passport.session());
-    require('./passport.js')();
+    // app.use(passport.initialize());
+    // app.use(passport.session());
+    // require('./passport.js')();
 
     var routes = require('../routes/index.route');
     var users = require('../routes/user.route');

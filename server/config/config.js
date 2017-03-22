@@ -1,1 +1,5 @@
-module.exports = require('./env/' + process.env.NODE_ENV + '.js');
+if (process.env.NODE_ENV === "production") {
+  module.exports = require('./env/' + "production" + '.js');
+} else {
+  module.exports = require('./env/development.js');
+}
