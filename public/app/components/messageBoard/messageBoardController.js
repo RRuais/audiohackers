@@ -302,7 +302,7 @@
 
             $scope.tinymceOptions = {
                 selector: 'textarea',
-                plugins: 'emoticons media table spellchecker',
+                plugins: 'emoticons media table',
                 resize: false,
                 statusbar: true,
                 toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code | emoticons',
