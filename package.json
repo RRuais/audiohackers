@@ -10,10 +10,10 @@
   "author": "Rich Ruais",
   "license": "ISC",
   "dependencies": {
-    "bower": "latest",
     "bcrypt": "^1.0.2",
     "bcryptjs": "^2.4.0",
     "body-parser": "^1.16.0",
+    "bower": "latest",
     "connect-flash": "^0.1.1",
     "connect-multiparty": "^2.0.0",
     "cookie-parser": "^1.4.3",
@@ -30,6 +30,7 @@
     "passport-facebook": "^2.1.1",
     "passport-http": "^0.3.0",
     "passport-local": "^1.0.0",
-    "q": "^1.4.1"
+    "webpack": "^2.3.2",
+    "webpack-dev-server": "^2.4.2"
   }
 }

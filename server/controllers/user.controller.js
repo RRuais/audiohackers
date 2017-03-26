@@ -1,7 +1,6 @@
 var User = require('mongoose').model('User');
 var Message = require('mongoose').model('Message');
 var Comment = require('mongoose').model('Comment');
-// var fs = require('fs-extra');
 var path = require('path');
 var bcrypt = require('bcryptjs');
 var mongoose = require('mongoose');
@@ -243,48 +242,4 @@ module.exports.editPhoto = function(req, res) {
             })
         }
     })
-};
-
-module.exports.addRelationship = function(req, res) {
-    var userId = req.body.loggedUser;
-    var userToFollowId = req.body.userToFollow;
-    User.findByIdAndUpdate(userId, {
-            $push: {
-                "following": userToFollowId
-            }
-        })
-        .then(function(user) {
-            User.findByIdAndUpdate(userToFollowId, {
-                    $push: {
-                        "followers": userId
-                    }
-                })
-                .then(function(user) {
-                    res.sendStatus(204);
-                })
-        }).catch(function(err) {
-            console.log(err);
-        });
-};
-
-module.exports.removeRelationship = function(req, res) {
-    var userId = req.params.userId;
-    var followId = req.params.followId;
-    User.findByIdAndUpdate(userId, {
-            $pull: {
-                "following": followId
-            }
-        })
-        .then(function(user) {
-            User.findByIdAndUpdate(followId, {
-                    $pull: {
-                        "followers": userId
-                    }
-                })
-                .then(function(user) {
-                    res.sendStatus(204);
-                })
-        }).catch(function(err) {
-            res.sendStatus(500);
-        });
 };

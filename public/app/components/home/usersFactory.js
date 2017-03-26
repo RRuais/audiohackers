@@ -71,15 +71,6 @@ angular.module('mainApp')
               });
         };
 
-////////////////// Followers and Following ////////////////////////////////////
-
-        factory.addRelationship = function(relationship) {
-            $http.patch('/api/users/following', relationship);
-        };
-
-        factory.removeRelationship = function(relationship) {
-            $http.delete('/api/users/following/' + relationship.userToFollow + '/' + relationship.loggedUser);
-        };
 
 
         return factory;

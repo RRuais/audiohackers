@@ -13,8 +13,6 @@ router.get('/findByEmail/:email', usersController.findByEmail);
 router.get('/:id', usersController.findById);
 router.post('/update', usersController.update);
 router.post('/profile/editPhoto', multipartMiddleware, usersController.editPhoto);
-router.patch('/following', usersController.addRelationship);
-router.delete('/following/:followId/:userId', usersController.removeRelationship);
 
 
 module.exports = router;
