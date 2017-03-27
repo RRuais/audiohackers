@@ -1,42 +1,5 @@
 <div class="row" ng-init="getMessagesFromTopic()">
 
-    <!-- <div class="col-md-4 ui-widget-content" ng-controller="HomeController" id="usersListPanel"> -->
-    <!-- <ul class="nav nav-tabs">
-            <li><button ng-click="getAllUsersExcept()" type="button" class="ui-button uiButtons">All Users</button></li>
-            <li><button ng-click="findFollowings()" type="button" class="ui-button uiButtons">Friends</button></li>
-        </ul>
-
-        <div id="searchUsersGroup" class="left-inner-addon">
-            <i class="fa fa-search"></i>
-            <input id="searchUsers" class="form-control fa fa-search" name="filterUsers" ng-model="filterUsers" type="text" placeholder="Search Users">
-        </div>
-
-        <ul class="list-group">
-            <li ng-repeat='user in users | filter: filterUsers' class="list-group-item" id="usersList">
-                <div class="row">
-                    <div class="col-md-5">
-                        <h4 class="userDetails">{{user.name}}</h4>
-                    </div>
-                    <div class="col-md-3">
-                        <button class="ui-button uiButtons" ng-show="!user.isFollowed" ng-click="addRelationship(user._id)">Add Friend</button>
-                        <button class="ui-button uiButtons" ng-show="user.isFollowed" ng-click="removeRelationship(user._id)">Unfriend</button>
-                    </div>
-                    <div class="col-md-4">
-                        <image id="userImage3" ng-src="{{user.image}}" class="img-responsive">
-                    </div>
-                </div>
-            </li>
-        </ul> -->
-    <!-- </div> -->
-    <!-- End Left Panel -->
-
-    <!-- <ul class="nav nav-tabs">
-        <li><a ng-click="getUserMessages()" type="button" class="ui-button uiButtons">Your Posts</a></li>
-        <li><a ng-click="getAllMessages()" type="button" class="ui-button uiButtons">All Posts</a></li>
-        <li><a ng-click="getFriendsMessages()" type="button" class="ui-button uiButtons">Friends Posts</a></li>
-        <li><h4>{{topic}}</h4></li>
-    </ul> -->
-
     <h2>{{topicTitle}}:</h2>
 
     <div class="col-md-9">
@@ -119,10 +82,10 @@
                                             <h4 for="title">Title:</h4>
                                         </div>
                                         <div class="col-md-10">
-                                            <input class="form-control" type="text" name="title" ng-model="title">
+                                            <input class="form-control" type="text" name="title" ng-model="title" required>
                                         </div>
                                     </div>
-                                    <textarea ui-tinymce="tinymceOptions" name="content" ng-model="content"></textarea>
+                                    <textarea ui-tinymce="tinymceOptions" name="content" ng-model="content" required></textarea>
                                     <input ng-disabled="messageForm2.$invalid" class="btn btn-primary" type="submit" value="Post">
                                 </div>
                             </form>

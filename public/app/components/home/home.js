@@ -39,7 +39,7 @@
                     $cookies.put('auth', user);
                     getUser();
                     $scope.user = "";
-                    $location.url('profile');
+                    $location.url('topics');
                   }
                 });
               } else {
@@ -47,12 +47,12 @@
               };
             };
 
-            $scope.facebookLogin = function() {
-              $http.get('/api/users/facebook/callback')
-                .then(function(response) {
-                  console.log(response);
-                })
-            };
+            // $scope.facebookLogin = function() {
+            //   $http.get('/api/users/facebook/callback')
+            //     .then(function(response) {
+            //       console.log(response);
+            //     })
+            // };
 
             $scope.logout = function() {
                 $cookies.remove('auth');

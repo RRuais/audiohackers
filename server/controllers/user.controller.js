@@ -6,7 +6,8 @@ var bcrypt = require('bcryptjs');
 var mongoose = require('mongoose');
 var passport = require('passport');
 var jwt = require('jsonwebtoken');
-var config = require('../config/config')
+var config = require('../config/config');
+var fs = require('fs-extra');
 
 mongoose.Promise = global.Promise;
 
