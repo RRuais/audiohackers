@@ -1,11 +1,10 @@
 $(document).ready(function() {
 
+  //Jquery UI Functions
     $('.button-wrap').on("click", function() {
         $(this).toggleClass('button-active');
     });
-    //Jquery UI Functions
     $(".ui-button").button({});
-
     $("#menu").menu();
 
     //10 sine wave oscillator button clicks
@@ -85,8 +84,6 @@ $(document).ready(function() {
     $('#oscOctaveOnOff').on("click", function() {
         oscOctaveOnOff();
     });
-
-
 
     function fillSqaureValues() {
         if ($('#osc1Freq').val() && $('#osc1VolInput').val()) {
@@ -192,8 +189,6 @@ $(document).ready(function() {
             }
         });
     });
-
-
 
     //////////////////// Oscillators ////////////////////
 

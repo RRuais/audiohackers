@@ -25,13 +25,11 @@
                     $location.url('success');
                   }
                 });
-            }; //End Register Function
+            };
 
             $scope.login = function() {
-              console.log('In login');
               if ($scope.user && $scope.user.password) {
                 uf.login($scope.user, function(creds, err) {
-                  console.log(creds);
                   if(err) {
                     $scope.error = err.data.message;
                   } else {
@@ -46,13 +44,6 @@
                 $scope.error = "Email or password incorrect";
               };
             };
-
-            // $scope.facebookLogin = function() {
-            //   $http.get('/api/users/facebook/callback')
-            //     .then(function(response) {
-            //       console.log(response);
-            //     })
-            // };
 
             $scope.logout = function() {
                 $cookies.remove('auth');

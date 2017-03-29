@@ -1,6 +1,7 @@
 <div class="row">
     <div class="col-md-5">
         <h2 class='page-header'> Register</h2>
+
         <style>
             input.ng-touched.ng-invalid.ng-dirty {
                 border: 3px solid red;
@@ -13,8 +14,6 @@
         </style>
 
         <form name="registerForm" ng-model="user" ng-submit="register()" novalidate="" autocomplete="false">
-            <!-- <div class="alert alert-danger "></div> -->
-
             <div class="form-group">
                 <label>Name</label>
                 <input type="text" class="form-control" ng-class="{red: registerForm.name.$invalid}" placeholder="Name" name="name" ng-model="user.name" required>
@@ -54,19 +53,16 @@
         <div class="errors" ng-repeat="error in errors">
             <div id="errorMessage" ng-if="error" class="alert alert-danger ">{{error}}</div>
         </div>
-        <!-- <a ng-click="facebookLogin()">Facebook</a> -->
     </div>
     <div class="col-md-7" id="rightPanel">
-      <div class="row">
-        <div class="jumbotron">
-          <div class="container">
-            <img src="/app/assets/images/audiohackers2.png" id="audiohackersjumbo" class="img-rounded" alt="Audio Hackers Logo">
-            <h2>A Social Network for Audio Engineers</h2>
-            <h3>The Wave Generator is a tool to help engineers and audio nerds alike to understand the fundamentals of additive synthesis!</h3>
-            <img src="/app/assets/images/waveGenLogo.png" class="img-rounded waveGenLogo" alt="Audio Hackers Wave Generator">
-
-          </div>
+        <div class="row">
+            <div class="jumbotron">
+                <div class="container">
+                    <img src="/app/assets/images/audiohackers2.png" id="audiohackersjumbo" class="img-rounded" alt="Audio Hackers Logo">
+                    <h2>A Social Network for Audio Engineers</h2>
+                    <h3>The Wave Generator is a tool to help engineers and audio nerds alike to understand the fundamentals of additive synthesis!</h3>
+                    <img src="/app/assets/images/waveGenLogo.png" class="img-rounded waveGenLogo" alt="Audio Hackers Wave Generator">
+                </div>
+            </div>
         </div>
     </div>
-
-</div>
