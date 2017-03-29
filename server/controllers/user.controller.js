@@ -11,55 +11,12 @@ var fs = require('fs-extra');
 
 mongoose.Promise = global.Promise;
 
-// module.exports.authenticate = function(req, res, next) {
-//   var headerExists = req.headers.authorization;
-//   if (headerExists) {
-//     var token = req.headers.authorization.split(' ')[1];
-//     jwt.verify(token, config.sessionSecret, function(error, decoded) {
-//       if (error) {
-//         res.status(401).json('Unauthorized');
-//       } else {
-//         req.user = decoded.email;
-//         next();
-//       }
-//     });
-//   } else {
-//     res.status(403).json('No token provided');
-//   }
-// };
-
-// module.exports.saveOAuthUserProfile = function(accessToken, refreshToken, profile, done) {
-//     User.findOne({
-//         email: profile.emails[0].value
-//     }, function(err, user) {
-//         console.log(profile);
-//         console.log(user);
-//         if (err)
-//             return done(err);
-//         if (user) {
-//             return done(null, user);
-//         } else {
-//             var newUser = new User();
-//             console.log(profile.id);
-//             newUser.fbId = profile.id.toString();
-//             console.log(newUser.fbId);
-//             newUser.name = profile.name.givenName + ' ' + profile.name.familyName;
-//             newUser.email = (profile.emails[0].value).toLowerCase();
-//
-//                     done(null, user);
-//
-//         }
-//     })
-//
-// };
-
 
 function _findByEmail(email) {
     return User.findOne({
         email: email
     });
 };
-
 
 module.exports.register = function(req, res) {
     var newUser = new User(req.body);
@@ -80,34 +37,10 @@ module.exports.register = function(req, res) {
     });
 };
 
-function createAdminUser() {
-    _findByEmail('admin@admin.com')
-        .then(function(user) {
-            if (!user) {
-                var newUser = new User({
-                    name: 'admin',
-                    email: 'admin@admin.com',
-                    password: 'password',
-                    isAdmin: true
-                });
-                User.createUser(newUser, function(err, user) {
-                    if (err) {
-                        console.log(err);
-                    } else {
-                        console.log("successfullly Created Admin User" + user);
-                    };
-                });
-            };
-        });
-};
-
-createAdminUser();
 
 module.exports.login = function(req, res) {
-    console.log('In Server');
     _findByEmail(req.body.email)
         .then(function(user) {
-            console.log(user);
             if (user) {
                 var hashPassword = user.password;
                 var testPassword = req.body.password;
